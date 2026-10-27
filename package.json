@@ -1,0 +1,44 @@
+{
+  "name": "@local/session-favorites",
+  "version": "1.0.0",
+  "private": true,
+  "description": "会话收藏:右键侧边栏会话打开更多操作菜单,可收藏会话并在侧边栏「收藏」面板中浏览。",
+  "author": "cypher-yht",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "session",
+    "favorites",
+    "bookmark"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cypher-yht/dsh-plugins-session-favorites.git"
+  },
+  "homepage": "https://github.com/cypher-yht/dsh-plugins-session-favorites#readme",
+  "bugs": {
+    "url": "https://github.com/cypher-yht/dsh-plugins-session-favorites/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": ["index.js", "client.js", "cordis.patch.yml", "locale/*.json", "icon.svg"],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  }
+}
